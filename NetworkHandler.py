@@ -39,26 +39,23 @@ PATCH_SIZE = "255" #The input dimensions for the network
 SLIDE_LEVEL = "0"   # the slide level the network has been trained for
 NET_ID = "5" # determines appended ID of desired network
 
-#DATA_PATH = "D:/Grading_slides/{}_level/{}x{}/".format(SLIDE_LEVEL, PATCH_SIZE, PATCH_SIZE)
-DATA_PATH = "Grading_slides/0_level/255x255/H&ENormed/train/"
-#DATA_PATH = "Grading_slides/0_level/255x255/H&ENormed/test_set/"
-EVAL_PATH = "Grading_slides/0_level/255x255/H&ENormed/eval/"
-#EVAL_PATH = DATA_PATH
-MODEL_PATH = "Grading_slides/{}_level/{}_grading_net_{}/".format(SLIDE_LEVEL, PATCH_SIZE,
+DATA_PATH = "train/"
+EVAL_PATH = "eval/"
+MODEL_PATH = "{}_level/{}_grading_net_{}/".format(SLIDE_LEVEL, PATCH_SIZE,
                                                                     NET_ID)
                       
-VIZ_DEST = "Grading_slides/{}_level/{}_grading_net_{}_viz/".format(SLIDE_LEVEL, PATCH_SIZE,
+VIZ_DEST = "{}_level/{}_grading_net_{}_viz/".format(SLIDE_LEVEL, PATCH_SIZE,
                                                                     NET_ID)
-PREDICT_DEST = "Grading_slides/{}_level/{}_grading_net_{}_predictions/".format(SLIDE_LEVEL, PATCH_SIZE,
+PREDICT_DEST = "{}_level/{}_grading_net_{}_predictions/".format(SLIDE_LEVEL, PATCH_SIZE,
                                                                     NET_ID)
-EVAL_RESULTS_DEST = "Grading_slides/{}_level/{}_grading_net_{}_eval_results.txt".format(SLIDE_LEVEL, PATCH_SIZE,
+EVAL_RESULTS_DEST = "{}_level/{}_grading_net_{}_eval_results.txt".format(SLIDE_LEVEL, PATCH_SIZE,
                                                                     NET_ID)
 
-ALREADY_TRAINED_DEST = "Grading_slides/{}_level/{}_grading_net_{}_already_trained.pickle".format(SLIDE_LEVEL, PATCH_SIZE,
+ALREADY_TRAINED_DEST = "{}_level/{}_grading_net_{}_already_trained.pickle".format(SLIDE_LEVEL, PATCH_SIZE,
                                                                     NET_ID)
-CONFUSION_DEST = "Grading_slides/{}_level/{}_grading_net_{}_confusion_matrix.npy".format(SLIDE_LEVEL, PATCH_SIZE,
+CONFUSION_DEST = "{}_level/{}_grading_net_{}_confusion_matrix.npy".format(SLIDE_LEVEL, PATCH_SIZE,
                                                                     NET_ID)
-DATA_CONFUSION_DEST = "Grading_slides/{}_level/{}_grading_net_{}_data_confusion_matrix.npy".format(SLIDE_LEVEL, PATCH_SIZE,
+DATA_CONFUSION_DEST = "{}_level/{}_grading_net_{}_data_confusion_matrix.npy".format(SLIDE_LEVEL, PATCH_SIZE,
                                                                     NET_ID)
 if not os.path.exists(VIZ_DEST):
     os.makedirs(VIZ_DEST)
@@ -67,7 +64,6 @@ if not os.path.exists(PREDICT_DEST):
     os.makedirs(PREDICT_DEST)
 
 if not os.path.exists(ALREADY_TRAINED_DEST):
-    #trained_file = open(ALREADY_TRAINED_DEST, "w")
     TRAINED_DICT = {'fully_trained':set({}), 'grade_one':GRADE_ONE_COUNT, 'grade_two':GRADE_TWO_COUNT, 'grade_three':GRADE_THREE_COUNT, 'epoch' : 0}
 else:
     print("loading pickle")
